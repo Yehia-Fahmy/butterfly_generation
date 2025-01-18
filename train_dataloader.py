@@ -1,4 +1,3 @@
-from diffusers import UNet2DModel
 import torch
 from datasets import load_dataset
 from dataclass import TrainingConfig
@@ -16,12 +15,13 @@ class DataLoader():
         self.dataset = load_dataset(self.config.dataset_name, split="train")
         print("Dataset loaded successfully:")
         print(self.dataset)
-        
-        fig, axs = plt.subplots(1, 4, figsize=(16, 4))
-        for i, image in enumerate(self.dataset[:4]["image"]):
-            axs[i].imshow(image)
-            axs[i].set_axis_off()
-        plt.show()
+       
+        def show_sample(self):       
+            fig, axs = plt.subplots(1, 4, figsize=(16, 4))
+            for i, image in enumerate(self.dataset[:4]["image"]):
+                axs[i].imshow(image)
+                axs[i].set_axis_off()
+            plt.show()
 
         preprocess = transforms.Compose(
             [
