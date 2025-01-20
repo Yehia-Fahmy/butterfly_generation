@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from huggingface_hub import login
-from token import Token
+from custom_token import Token
 
 @dataclass
 class TrainingConfig:
