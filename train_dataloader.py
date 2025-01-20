@@ -7,16 +7,17 @@ from torchvision import transforms
 
 class DataLoader():
     """DataLoader class to load the dataset and return the train dataloader"""
-    def __init__(self):
+    def __init__(self, show_sample=False):
         self.config = TrainingConfig()
 
-        self.config.dataset_name = "huggan/smithsonian_butterflies_subset"
+        # self.config.dataset_name = "huggan/smithsonian_butterflies_subset"
+        self.config.dataset_name = "huggan/few-shot-pokemon"
 
         self.dataset = load_dataset(self.config.dataset_name, split="train")
         print("Dataset loaded successfully:")
         print(self.dataset)
-       
-        def show_sample(self):       
+        
+        if (show_sample):
             fig, axs = plt.subplots(1, 4, figsize=(16, 4))
             for i, image in enumerate(self.dataset[:4]["image"]):
                 axs[i].imshow(image)
@@ -41,7 +42,6 @@ class DataLoader():
     def return_train_dataloader(self):
         """Return the train dataloader"""
         return torch.utils.data.DataLoader(self.dataset, batch_size=self.config.train_batch_size, shuffle=True)
-
         
-data_loader = DataLoader()
+data_loader = DataLoader(True)
 train_dataloader = data_loader.return_train_dataloader()

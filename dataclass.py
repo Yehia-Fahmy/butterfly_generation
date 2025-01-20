@@ -20,8 +20,9 @@ class TrainingConfig:
     save_model_epochs = 30
     # mixed_precision = "fp16"  # `no` for float32, `fp16` for automatic mixed precision
     mixed_precision = "no"
-    output_dir = "ddpm-butterflies-128"  # the model name locally and on the HF Hub
-    dataset_name = ""
+    output_dir = "pokemon-generator"  # the model name locally and on the HF Hub
+    # dataset_name = "huggan/smithsonian_butterflies_subset"
+    dataset_name = "huggan/few-shot-pokemon"
     push_to_hub = False  # whether to upload the saved model to the HF Hub
     hub_private_repo = False
     overwrite_output_dir = False  # overwrite the old model when re-running the notebook
