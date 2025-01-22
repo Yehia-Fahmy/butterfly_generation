@@ -10,10 +10,8 @@ class DataLoader():
     def __init__(self, show_sample=False):
         self.config = TrainingConfig()
 
-        # self.config.dataset_name = "huggan/smithsonian_butterflies_subset"
-        self.config.dataset_name = "huggan/few-shot-pokemon"
 
-        self.dataset = load_dataset(self.config.dataset_name, split="train")
+        self.dataset = load_dataset(self.config.dataset_name, split="train[:8000]")
         print("Dataset loaded successfully:")
         print(self.dataset)
         
